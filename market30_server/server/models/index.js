@@ -190,15 +190,6 @@ const Restaurant = sequelize.define('restaurant', {
       // add a FULLTEXT index
       { type: 'FULLTEXT', name: 'subway_idx', fields: ['subway'] },
       { type: 'FULLTEXT', name: 'food_type_idx', fields: ['food_type'] },
-      { type: 'FULLTEXT', name: 'food_name_idx', fields: ['food_name'] },
-      { type: 'FULLTEXT', name: 'mood_idx', fields: ['mood'] },
-      { type: 'FULLTEXT', name: 'mood2_idx', fields: ['mood2'] },
-      { type: 'FULLTEXT', name: 'taste_idx', fields: ['taste'] },
-      { type: 'FULLTEXT', name: 'price_lunch_idx', fields: ['price_lunch'] },
-      { type: 'FULLTEXT', name: 'price_dinner_idx', fields: ['price_dinner'] },
-      { type: 'FULLTEXT', name: 'food_name_idx', fields: ['food_name'] },
-      { type: 'FULLTEXT', name: 'drink_type_idx', fields: ['drink_type'] },
-      { type: 'FULLTEXT', name: 'drink_round_idx', fields: ['drink_round'] },
       { method: 'BTREE', name: 'exit_quarter_idx', fields: ['exit_quarter'] }
     ]
   });
