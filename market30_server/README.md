@@ -1,6 +1,6 @@
-# food-api-server
+# api-server
 
-food-chatbot API Server
+market30 API Server
 
 ORM : Sequelize
 

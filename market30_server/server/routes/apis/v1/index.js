@@ -6,6 +6,6 @@ const
 
 let router = express.Router();
 
-router.use('/users', usersController) // Chatbot Server
+router.use('/users', usersController)
 
 module.exports = router
