@@ -53,49 +53,46 @@ const sequelize = new Sequelize(
 );
 
 const Buyer = sequelize.define('buyers', {
-  id: Sequelize.INTEGER,
+  id: {type: Sequelize.INTEGER, primaryKey: true},
   user_id: Sequelize.STRING,
   password: Sequelize.STRING,
   created_at: { type: Sequelize.DATE, defaultValue: Sequelize.NOW }
 },
 {
   tableName: 'buyers',
-  primaryKey: true,
   freezeTableName: true,
   timestamps: true,
   underscored: true,
 });
 
 const Seller = sequelize.define('sellers', {
-  id: Sequelize.INTEGER,
+  id: {type: Sequelize.INTEGER, primaryKey: true},
   user_id: Sequelize.STRING,
   password: Sequelize.STRING,
   created_at: { type: Sequelize.DATE, defaultValue: Sequelize.NOW }
 },
 {
   tableName: 'sellers',
-  primaryKey: true,
   freezeTableName: true,
   timestamps: true,
   underscored: true,
 });
 
 const Store = sequelize.define('stores', {
-  id: Sequelize.INTEGER,
+  id: {type: Sequelize.INTEGER, primaryKey: true},
   owner_id: Sequelize.INTEGER,
   name: Sequelize.STRING,
   created_at: { type: Sequelize.DATE, defaultValue: Sequelize.NOW }
 },
 {
   tableName: 'stores',
-  primaryKey: true,
   freezeTableName: true,
   timestamps: true,
   underscored: true,
 });
 
 const Product = sequelize.define('products', {
-  id: Sequelize.INTEGER,
+  id: {type: Sequelize.INTEGER, primaryKey: true},
   store_id: Sequelize.INTEGER,
   name: Sequelize.STRING,
   price: Sequelize.INTEGER,
@@ -106,14 +103,13 @@ const Product = sequelize.define('products', {
 },
 {
   tableName: 'products',
-  primaryKey: true,
   freezeTableName: true,
   timestamps: true,
   underscored: true,
 });
 
 const Transaction = sequelize.define('transactions', {
-  id: Sequelize.INTEGER,
+  id: {type: Sequelize.INTEGER, primaryKey: true},
   buyer_id: Sequelize.INTEGER,
   seller_id: Sequelize.INTEGER,
   store_id: Sequelize.INTEGER,
@@ -124,7 +120,6 @@ const Transaction = sequelize.define('transactions', {
 },
 {
   tableName: 'transactions',
-  primaryKey: true,
   freezeTableName: true,
   timestamps: true,
   underscored: true,
