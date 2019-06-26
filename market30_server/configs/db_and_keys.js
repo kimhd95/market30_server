@@ -3,19 +3,19 @@ const productionKeys = require('./production_keys')
 const environments = {
 	local: {
 		mysql: {
-            host: 'market30-db.c3cgz5eipt1b.ap-northeast-2.rds.amazonaws.com',
+            host: 'market30db.c3cgz5eipt1b.ap-northeast-2.rds.amazonaws.com',
             username: 'market30',
 						password: 'market30',
-            database: 'market30_db',
+            database: 'market30db',
             logging: console.log
 		},
 	},
 	dev: {
 		mysql: {
-            host: 'market30-db.c3cgz5eipt1b.ap-northeast-2.rds.amazonaws.com',
+            host: 'market30db.c3cgz5eipt1b.ap-northeast-2.rds.amazonaws.com',
             username: 'market30',
             password: 'market30',
-            database: 'market30_db',
+            database: 'market30db',
             logging: console.log
 		},
 	},
