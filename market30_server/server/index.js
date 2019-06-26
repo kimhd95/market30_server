@@ -39,6 +39,7 @@ module.exports = function() {
                 // 'https://atopy.jellylab.io',
 								// 'https://devapifood.jellylab.io',
 								// 'https://corgi.jellylab.io',
+								'http://183.109.203.94'
 			];
 
 			if (req.headers !== undefined){
