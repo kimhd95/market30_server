@@ -13,6 +13,10 @@ const qs = require('qs');
 // const Hangul = require('hangul-js');
 // const nodemailer = require('nodemailer');
 
+function testfunction(req, res) {
+  return res.status(200).json({success:true, message:"test"});
+}
 
 module.exports = {
+  testfunction: testfunction
 }
