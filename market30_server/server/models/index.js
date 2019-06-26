@@ -1,20 +1,20 @@
 const Sequelize = require('sequelize');
 const config = require('../../configs')
 
-const verifyAPIKEY = (req, res, next) => {
-
-    if(!req.body.apikey) {
-        console.log(req.body.apikey);
-        return res.status(400).send('API key not given.');
-    }
-
-    //console.log(req.body);
-    const apikey = req.body.apikey.toString().trim() || '';
-    if(apikey!=config.apikey)
-        return res.status(400).send('API key is invalid.');
-
-    next();
-}
+// const verifyAPIKEY = (req, res, next) => {
+//
+//     if(!req.body.apikey) {
+//         console.log(req.body.apikey);
+//         return res.status(400).send('API key not given.');
+//     }
+//
+//     //console.log(req.body);
+//     const apikey = req.body.apikey.toString().trim() || '';
+//     if(apikey!=config.apikey)
+//         return res.status(400).send('API key is invalid.');
+//
+//     next();
+// }
 
 const sequelize = new Sequelize(
     config.mysql.database,
