@@ -12,7 +12,7 @@ console.log('apis/users/index.js called');
 /**
  * api/v1/users/
  */
-router.post('/test', APIService.testfunction);
+router.post('/test', APIService.dbtest);
 router.post('/dbtest', APIService.dbtest);
 // ^Middleware. Make sure to put all the routes which needs authentication below this middleware.
 
