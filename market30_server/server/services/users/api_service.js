@@ -8,7 +8,7 @@ function testfunction(req, res) {
   return res.status(200).json({success:true, message:"test"});
 }
 function dbtest(req, res) {
-  models.sequelize.findOne({
+  models.Buyer.findOne({
     where: {
       id: 1
     }
