@@ -1,0 +1,17 @@
+{
+  "name": "market30_server",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "cross-env NODE_ENV=production nodemon api_atopy.js",
+    "dev": "cross-env NODE_ENV=dev nodemon api_atopy.js",
+    "local": "cross-env NODE_ENV=local nodemon api_atopy.js",
+    "stage": "cross-env NODE_ENV=state nodemon api_atopy.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+  }
+}
