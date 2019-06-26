@@ -60,6 +60,7 @@ const Buyer = sequelize.define('buyers', {
 },
 {
   tableName: 'buyers',
+  primaryKey: true,
   freezeTableName: true,
   timestamps: true,
   underscored: true,
@@ -73,6 +74,7 @@ const Seller = sequelize.define('sellers', {
 },
 {
   tableName: 'sellers',
+  primaryKey: true,
   freezeTableName: true,
   timestamps: true,
   underscored: true,
@@ -86,6 +88,7 @@ const Store = sequelize.define('stores', {
 },
 {
   tableName: 'stores',
+  primaryKey: true,
   freezeTableName: true,
   timestamps: true,
   underscored: true,
@@ -103,6 +106,7 @@ const Product = sequelize.define('products', {
 },
 {
   tableName: 'products',
+  primaryKey: true,
   freezeTableName: true,
   timestamps: true,
   underscored: true,
@@ -120,6 +124,7 @@ const Transaction = sequelize.define('transactions', {
 },
 {
   tableName: 'transactions',
+  primaryKey: true,
   freezeTableName: true,
   timestamps: true,
   underscored: true,
