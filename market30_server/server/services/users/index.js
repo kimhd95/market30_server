@@ -15,26 +15,26 @@ function now(date) {
     return date.getFullYear()+'-'+m+'-'+d+' '+h+':'+i+':'+s;
 }
 
-function getUsers(req, res) {
-    models.User.findAll({
-    }).then(result => {
-        res.json(result);
-    })
-}
-
-function getUserWithId(req, res) {
-    models.User.findOne({
-        where: {
-            kakao_id: req.body.kakao_id
-        }
-    }).then(result => {
-        res.json(result);
-    })
-}
+// function getUsers(req, res) {
+//     models.User.findAll({
+//     }).then(result => {
+//         res.json(result);
+//     })
+// }
+//
+// function getUserWithId(req, res) {
+//     models.User.findOne({
+//         where: {
+//             kakao_id: req.body.kakao_id
+//         }
+//     }).then(result => {
+//         res.json(result);
+//     })
+// }
 
 module.exports = {
-    getUsers: getUsers,
-    getUserWithId: getUserWithId,
+    // getUsers: getUsers,
+    // getUserWithId: getUserWithId,
 
     // Below methods requires APIKey.
 }
