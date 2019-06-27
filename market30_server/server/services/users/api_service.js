@@ -8,7 +8,7 @@ const cheerio = require('cheerio');
 
 function getBuyerInfo(req, res) {
   const {user_id, password} = req.body;
-  models.Buyer.find({
+  models.Buyer.findAll({
     where: {
       user_id: user_id,
       password: password
@@ -57,7 +57,7 @@ function registerProduct(req, res) {
 function getProductList(req, res) {
   const seller_id = req.body.seller_id;
 
-  models.Product.find({
+  models.Product.findAll({
     where: {
       seller_id: seller_id
     }
