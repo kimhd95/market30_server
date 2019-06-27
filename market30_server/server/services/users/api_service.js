@@ -8,15 +8,11 @@ const cheerio = require('cheerio');
 
 function getBuyerInfo(req, res) {
   const {user_id, password} = req.body;
-  // models.Buyer.findAll({
-  //   where: {
-  //     user_id: user_id,
-  //     password: password
-  //   }
+
   models.sequelize.query(`SELECT * FROM buyers;`).then(result => {
     console.log(result[0]);
-    if (result) {
-      return res.status(200).json({success: true, data: result[0]});
+    if (result[0].length > 0) {
+      return res.status(200).json({success: true, data: result[0][0]});
     } else {
       return res.status(200).json({success: false, message: "no account"});
     }
@@ -25,29 +21,33 @@ function getBuyerInfo(req, res) {
   });
 }
 
-// function registerBuyer(req, res) {
-//   const {user_id, password} = req.body;
-// }
-// //
-// function registerSeller(req, res) {
-//   const {user_id, password} = req.body;
-// }
-// //
-// function registerStore(req, res) {
-//   const {owner_id, owner_name, store_name, open_time, close_time} = req.body;
-// }
-// //
+function registerBuyer(req, res) {
+  const {user_id, password, name} = req.body;
+}
+
+function registerSeller(req, res) {
+  const {user_id, password, name} = req.body;
+}
+
+function registerStore(req, res) {
+  const {owner_id, name, open_time, close_time} = req.body;
+}
+
 function registerProduct(req, res) {
   const {name, store_name, price, count, describe, image} = req.body;
 
-  models.Product.create({
-    name: name,
-    store_name: store_name,
-    price: price,
-    count: count,
-    describe: describe,
-    image: image
-  }).then(result => {
+  models.sequelize.query(`INSERT INTO products (name, store_name, price, count, describe, image)
+  VALUES('${name}', '${store_name}', ${price}, ${count}, '${describe}', '${image}')`)
+
+  // ({
+  //   name: name,
+  //   store_name: store_name,
+  //   price: price,
+  //   count: count,
+  //   describe: describe,
+  //   image: image
+  // })
+  .then(result => {
     return res.status(200).json({success: true});
   }).catch(err => {
     return res.status(403).json({success: false, message: "Internal Server or DB error."});
@@ -57,12 +57,13 @@ function registerProduct(req, res) {
 function getProductList(req, res) {
   const seller_id = req.body.seller_id;
 
-  models.Product.findAll({
-    where: {
-      seller_id: seller_id
+  models.sequelize.query(`SELECT * FROM products WHERE seller_id=${seller_id};`)
+  .then(result => {
+    if (result[0].length > 0) {
+      return res.status(200).json({success: true, data: result[0]});
+    } else {
+      return res.status(200).json({success: false, message: "no data."});
     }
-  }).then(result => {
-    return res.status(403).json({success: true, data: result});
   }).catch(err => {
     return res.status(403).json({success: false, message: "Internal Server or DB error."});
   });
