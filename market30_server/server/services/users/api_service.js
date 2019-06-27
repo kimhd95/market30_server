@@ -154,7 +154,7 @@ function getNearStore(req, res) {
       let result = 12742 * Math.asin(Math.sqrt(a));
       item['distance'] = Math.floor(result*1000) + 'm';
       storeList.push(item);
-      return new Promise(resolve => setTimeout(() => resolve("ok"), 100));
+      return new Promise(resolve => setTimeout(() => resolve(), 100));
     }
 
     var actions = result[0].map(calFunction);
@@ -163,7 +163,7 @@ function getNearStore(req, res) {
       storeList.sort(function(a, b) {
         return (a.distance < b.distance) ? -1 : (a.distance > b.distance) ? 0 : 1;
       });
-      return res.status(200).json({success: true, data: storeList});
+      setTimeout(() => {return res.status(200).json({success: true, data: storeList});}, 100);
     }).catch(err => {
       return res.status(500).json({success: false, message: 'Internal Server or DB error.'});
     });
