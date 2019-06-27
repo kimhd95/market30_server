@@ -14,10 +14,10 @@ function getBuyerInfo(req, res) {
     if (result[0].length > 0) {
       return res.status(200).json({success: true, data: result[0][0]});
     } else {
-      return res.status(200).json({success: false, message: "no account"});
+      return res.status(403).json({success: false, message: "no account"});
     }
   }).catch(err => {
-    return res.status(403).json({success: false, message: "Internal Server or DB error."})
+    return res.status(500).json({success: false, message: "Internal Server or DB error."})
   });
 }
 
@@ -40,7 +40,7 @@ function registerProduct(req, res) {
   models.sequelize.query(query).then(result => {
     return res.status(200).json({success: true});
   }).catch(err => {
-    return res.status(403).json({success: false, message: "Internal Server or DB error."});
+    return res.status(500).json({success: false, message: "Internal Server or DB error."});
   });
 
     // ({
@@ -61,10 +61,10 @@ function getProductList(req, res) {
     if (result[0].length > 0) {
       return res.status(200).json({success: true, data: result[0]});
     } else {
-      return res.status(200).json({success: false, message: "no data."});
+      return res.status(403).json({success: false, message: "no data."});
     }
   }).catch(err => {
-    return res.status(403).json({success: false, message: "Internal Server or DB error."});
+    return res.status(500).json({success: false, message: "Internal Server or DB error."});
   });
 }
 
