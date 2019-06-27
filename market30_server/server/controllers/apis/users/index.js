@@ -14,7 +14,7 @@ console.log('apis/users/index.js called');
  */
 router.get('/images/:imageName', function(req, res) {
   let imageName = req.params.imageName;
-  res.sendFile(`../../../public/${imageNmae}.jpg`, {root: __dirname});
+  res.sendFile(`../../../public/${imageName}.jpg`, {root: __dirname});
 })
 router.post('/test', APIService.testfunction);
 // ^Middleware. Make sure to put all the routes which needs authentication below this middleware.
