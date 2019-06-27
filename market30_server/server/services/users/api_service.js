@@ -8,15 +8,15 @@ const cheerio = require('cheerio');
 
 function getBuyerInfo(req, res) {
   const {user_id, password} = req.body;
-  models.Buyer.findAll({
-    where: {
-      user_id: user_id,
-      password: password
-    }
-  }).then(result => {
-    console.log(result);
+  // models.Buyer.findAll({
+  //   where: {
+  //     user_id: user_id,
+  //     password: password
+  //   }
+  models.sequelize.query(`SELECT * FROM buyers;`).then(result => {
+    console.log(result[0]);
     if (result) {
-      return res.status(200).json({success: true, data: result});
+      return res.status(200).json({success: true, data: result[0]});
     } else {
       return res.status(200).json({success: false, message: "no account"});
     }
