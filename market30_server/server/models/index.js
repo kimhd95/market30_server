@@ -56,6 +56,7 @@ const Buyer = sequelize.define('buyers', {
   id: {type: Sequelize.INTEGER, primaryKey: true},
   user_id: Sequelize.STRING,
   password: Sequelize.STRING,
+  name: Sequelize.STRING,
   created_at: { type: Sequelize.DATE, defaultValue: Sequelize.NOW }
 },
 {
@@ -69,6 +70,7 @@ const Seller = sequelize.define('sellers', {
   id: {type: Sequelize.INTEGER, primaryKey: true},
   user_id: Sequelize.STRING,
   password: Sequelize.STRING,
+  name: Sequelize.STRING,
   created_at: { type: Sequelize.DATE, defaultValue: Sequelize.NOW }
 },
 {
@@ -82,6 +84,8 @@ const Store = sequelize.define('stores', {
   id: {type: Sequelize.INTEGER, primaryKey: true},
   owner_id: Sequelize.INTEGER,
   name: Sequelize.STRING,
+  open_time: Sequelize.STRING,
+  close_time: Sequelize.STRING,
   created_at: { type: Sequelize.DATE, defaultValue: Sequelize.NOW }
 },
 {
@@ -93,9 +97,10 @@ const Store = sequelize.define('stores', {
 
 const Product = sequelize.define('products', {
   id: {type: Sequelize.INTEGER, primaryKey: true},
-  store_id: Sequelize.INTEGER,
+  seller_id: Sequelize.STRING,
   name: Sequelize.STRING,
   price: Sequelize.INTEGER,
+  original_price: Sequelize.INTEGER,
   count: Sequelize.INTEGER,
   describe: Sequelize.STRING,
   image: Sequelize.STRING,
