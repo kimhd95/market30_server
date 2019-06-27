@@ -41,13 +41,12 @@ function registerProduct(req, res) {
   const {name, store_name, price, count, describe, image} = req.body;
 
   models.Product.create({
-      name: name,
-      store_name: store_name,
-      price: price,
-      count: count,
-      describe: describe,
-      image: image
-    }
+    name: name,
+    store_name: store_name,
+    price: price,
+    count: count,
+    describe: describe,
+    image: image
   }).then(result => {
     return res.status(200).json({success: true});
   }).catch(err => {
@@ -66,7 +65,7 @@ function getProductList(req, res) {
     return res.status(403).json({success: true, data: result});
   }).catch(err => {
     return res.status(403).json({success: false, message: "Internal Server or DB error."});
-  })
+  });
 }
 
 function verifyBarcode(req, res) {
