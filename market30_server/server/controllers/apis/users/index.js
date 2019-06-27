@@ -21,6 +21,7 @@ router.get('/images/:imageName', function(req, res) {
 // router.post('/register_seller', APIService.registerSeller);
 // router.post('/register_store', APIService.registerStore);
 // router.post('/register_product', APIService.registerProduct);
+router.post('/get_buyer_info', APIService.getBuyerInfo);
 router.post('/verify_barcode', APIService.verifyBarcode);
 
 // ^Middleware. Make sure to put all the routes which needs authentication below this middleware.
