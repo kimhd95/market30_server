@@ -5,6 +5,7 @@ const
     userService = require('../../../services/users'),
     models = require('../../../models'),
     APIService = require('../../../services/users/api_service');
+    path = require('path');
 
 let router = express.Router();
 
