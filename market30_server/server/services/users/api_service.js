@@ -26,7 +26,8 @@ function verifyBarcode(req, res) {
   request.get({uri:`https://www.beepscan.com/barcode/${barcode}`}, function (error, response, body) {
     //callback
     const $ = cheerio.load('body');
-    return res.status(200).json({success: true, message: $("img").attr("src")});
+    const img_url = $("img:last");
+    return res.status(200).json({success: true, message: img_url});
   });
 }
 
