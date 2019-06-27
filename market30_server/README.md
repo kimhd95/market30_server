@@ -42,19 +42,19 @@ http://ec2-13-209-77-121.ap-northeast-2.compute.amazonaws.com:6001/api/v1/users/
 [post] /verify_barcode
 ```
 
-#### Request Header
+##### ***Request Header***
 ```
 { 'content-type': 'application/json' }
 ```
 
-#### Request Body
+##### ***Request Body***
 ```
 {
 	"barcode": "001122233"
 }
 ```
 
-#### Response Body
+##### ***Response Body***
 
 -success 예시-
 ```
@@ -77,12 +77,12 @@ http://ec2-13-209-77-121.ap-northeast-2.compute.amazonaws.com:6001/api/v1/users/
 [post] /register_product
 ```
 
-#### Request Header
+##### ***Request Header***
 ```
 { 'content-type': 'application/json' }
 ```
 
-#### Request Body
+##### ***Request Body***
 ```
 {
 	"name": "001122233",
@@ -94,7 +94,7 @@ http://ec2-13-209-77-121.ap-northeast-2.compute.amazonaws.com:6001/api/v1/users/
 }
 ```
 
-#### Response Body
+##### ***Response Body***
 
 -success 예시-
 ```
@@ -116,19 +116,19 @@ http://ec2-13-209-77-121.ap-northeast-2.compute.amazonaws.com:6001/api/v1/users/
 [post] /get_product_list
 ```
 
-#### Request Header
+##### ***Request Header***
 ```
 { 'content-type': 'application/json' }
 ```
 
-#### Request Body
+##### ***Request Body***
 ```
 {
 	"seller_id": "kimhd95"
 }
 ```
 
-#### Response Body
+##### ***Response Body***
 
 -success 예시-
 ```
@@ -143,7 +143,7 @@ http://ec2-13-209-77-121.ap-northeast-2.compute.amazonaws.com:6001/api/v1/users/
     "count": 6,
     "comment": "사세요",
     "image": "http://~~~~"
-  }, 
+  },
   ...]
 }
 ```
