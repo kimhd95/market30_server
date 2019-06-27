@@ -3,7 +3,7 @@ const config = require('../../../configs');
 const Op = models.sequelize.Op;
 const request = require('request');
 const qs = require('qs');
-
+const cheerio = require('cheerio');
 // function registerBuyer(req, res) {
 //
 // }
@@ -25,7 +25,8 @@ function verifyBarcode(req, res) {
 
   request.get({uri:`https://www.beepscan.com/barcode/${barcode}`}, function (error, response, body) {
     //callback
-    return res.status(200).json({success: true, message: body});
+    const $ = cheerio.load('body');
+    return res.status(200).json({success: true, message: $("img").attr("src")});
   });
 }
 
