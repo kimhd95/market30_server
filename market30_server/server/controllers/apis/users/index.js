@@ -27,6 +27,10 @@ router.post('/verify_barcode', APIService.verifyBarcode);
 router.post('/delete_product', APIService.deleteProduct);
 router.post('/make_payment', APIService.makePayment);
 router.post('/get_near_store', APIService.getNearStore);
+router.post('/search_product', APIService.searchProduct);
+router.post('/add_wishlist', APIService.addWishlist);
+router.post('/delete_wishlist', APIService.deleteWishlist);
+
 
 // ^Middleware. Make sure to put all the routes which needs authentication below this middleware.
 

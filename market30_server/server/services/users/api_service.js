@@ -172,9 +172,43 @@ function getNearStore(req, res) {
   });
 }
 
-// 가게 검색
+// 상품 검색
+function searchProduct(req, res) {
+  const value = req.body.value;
 
+  const query = `SELECT * FROM products WHERE name LIKE '%${value}%' OR comment LIKE '%${value}%'`;
+  models.sequelize.query(query).then(result => {
+    if (result[0].length > 0) {
+      return res.status(200).json({success: true, data: result[0]});
+    } else {
+      return res.status(403).json({success: false, message: 'no result'});
+    }
+  }).catch(err => {
+    return res.status(500).json({success: false, message: "Internal Server or DB error."});
+  });
+}
 
+// 찜목록 추가
+function addWishlist(req, res) {
+  const {buyer_id, product_id} = req.body;
+  const query = `INSERT INTO wish_lists (buyer_id, product_id) VALUES ('${buyer_id}', ${product_id})`;
+  models.sequelize.query(query).then(() => {
+    return res.status(200).json({success: true});
+  }).catch(err => {
+    return res.status(500).json({success: false, message: "Internal Server or DB error."});
+  });
+}
+
+// 찜목록 삭제
+function deleteWishlist(req, res) {
+  const {buyer_id, product_id} = req.body;
+  const query = `DELETE FROM wish_lists WHERE buyer_id='${buyer_id}' AND product_id=${product_id}`;
+  models.sequelize.query(query).then(() => {
+    return res.status(200).json({success: true});
+  }).catch(err => {
+    return res.status(500).json({success: false, message: "Internal Server or DB error."});
+  });
+}
 
 module.exports = {
   getBuyerInfo: getBuyerInfo,
@@ -187,5 +221,8 @@ module.exports = {
   verifyBarcode: verifyBarcode,
   deleteProduct: deleteProduct,
   makePayment: makePayment,
-  getNearStore: getNearStore
+  getNearStore: getNearStore,
+  searchProduct: searchProduct,
+  addWishlist: addWishlist,
+  deleteWishlist: deleteWishlist
 }
