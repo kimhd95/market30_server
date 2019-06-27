@@ -31,13 +31,7 @@ http://ec2-13-209-77-121.ap-northeast-2.compute.amazonaws.com:6001/api/v1/users/
 
 ### API
 
-**getBuyerInfo**
-```
-[post] /get_buyer_info
-```
-
-
-**바코드 조회**
+**[바코드 조회]**
 ```
 [post] /verify_barcode
 ```
@@ -72,7 +66,7 @@ http://ec2-13-209-77-121.ap-northeast-2.compute.amazonaws.com:6001/api/v1/users/
 }
 ```
 
-**상품등록**
+**[상품등록]**
 ```
 [post] /register_product
 ```
@@ -111,7 +105,7 @@ http://ec2-13-209-77-121.ap-northeast-2.compute.amazonaws.com:6001/api/v1/users/
 }
 ```
 
-**상품목록 로드**
+**[상품목록 로드]**
 ```
 [post] /get_product_list
 ```
