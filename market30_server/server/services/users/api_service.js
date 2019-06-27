@@ -9,16 +9,16 @@ const cheerio = require('cheerio');
 
 function getBuyerInfo(req, res) {
   const {user_id, password} = req.body;
-  models.Buyer.count({
+  models.Buyer.findOne({
     where: {
       user_id: user_id,
       password: password
     }
   }).then(result => {
-    if (result === 0) {
-      return res.status(200).json({success: false, message: "no account"});
-    } else {
+    if (result) {
       return res.status(200).json({success: true, data: result});
+    } else {
+      return res.status(200).json({success: false, message: "no account"});
     }
   }).catch(err => {
     return res.status(403).json({success: false, message: "Internal Server or DB error."})
