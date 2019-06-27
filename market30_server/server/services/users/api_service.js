@@ -34,8 +34,8 @@ function registerStore(req, res) {
 }
 
 function registerProduct(req, res) {
-  const {name, store_name, price, count, describe, image} = req.body;
-  const query = `INSERT INTO products (name, store_name, price, count, describe, image) VALUES('${name}', '${store_name}', ${price}, ${count}, '${describe}', '${image}')`;
+  const {name, seller_id, price, count, describe, image} = req.body;
+  const query = `INSERT INTO products (name, seller_id, price, count, describe, image) VALUES('${name}', '${seller_id}', ${price}, ${count}, '${describe}', '${image}')`;
   console.log(query);
   models.sequelize.query(query).then(result => {
     return res.status(200).json({success: true});
