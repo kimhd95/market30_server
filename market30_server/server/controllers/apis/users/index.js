@@ -17,7 +17,12 @@ router.get('/images/:imageName', function(req, res) {
   res.sendFile(`/home/ubuntu/market30_server/market30_server/server/public/${imageName}.jpg`);
 });
 
-router.post('/test', APIService.testfunction);
+// router.post('/register_buyer', APIService.registerBuyer);
+// router.post('/register_seller', APIService.registerSeller);
+// router.post('/register_store', APIService.registerStore);
+// router.post('/register_product', APIService.registerProduct);
+router.post('/verify_barcode', APIService.verifyBarcode);
+
 // ^Middleware. Make sure to put all the routes which needs authentication below this middleware.
 
 module.exports = router;
