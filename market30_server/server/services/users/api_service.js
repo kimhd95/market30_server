@@ -23,14 +23,32 @@ function getBuyerInfo(req, res) {
 
 function registerBuyer(req, res) {
   const {user_id, password, name} = req.body;
+  const query = `INSERT INTO buyers (user_id, password, name, created_at) VALUES('${user_id}', '${password}', ${name}, NOW())`;
+  models.sequelize.query(query).then(result => {
+    return res.status(200).json({success: true});
+  }).catch(err => {
+    return res.status(500).json({success: false, message: "Internal Server or DB error."});
+  });
 }
 
 function registerSeller(req, res) {
   const {user_id, password, name} = req.body;
+  const query = `INSERT INTO sellers (user_id, password, name, created_at) VALUES('${user_id}', '${password}', ${name}, NOW())`;
+  models.sequelize.query(query).then(result => {
+    return res.status(200).json({success: true});
+  }).catch(err => {
+    return res.status(500).json({success: false, message: "Internal Server or DB error."});
+  });
 }
 
 function registerStore(req, res) {
   const {owner_id, name, open_time, close_time} = req.body;
+  const query = `INSERT INTO stores (owner_id, name, open_time, close_time, created_at) VALUES('${owner_id}', '${name}', ${open_time}, ${close_time}, NOW())`;
+  models.sequelize.query(query).then(result => {
+    return res.status(200).json({success: true});
+  }).catch(err => {
+    return res.status(500).json({success: false, message: "Internal Server or DB error."});
+  });
 }
 
 function registerProduct(req, res) {
@@ -42,15 +60,6 @@ function registerProduct(req, res) {
   }).catch(err => {
     return res.status(500).json({success: false, message: "Internal Server or DB error."});
   });
-
-    // ({
-    //   name: name,
-    //   store_name: store_name,
-    //   price: price,
-    //   count: count,
-    //   describe: describe,
-    //   image: image
-    // })
 }
 
 function getProductList(req, res) {
