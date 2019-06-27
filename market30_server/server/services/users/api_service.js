@@ -110,7 +110,7 @@ function verifyBarcode(req, res) {
     const $ = cheerio.load(body);
     const product_name = $("div.container b").text();
     const img_url = $("img").last().attr('src');
-    return res.status(200).json({success: true, data: {product_name: product_name, img_url: img_url}});
+    return res.status(200).json({success: true, product_name: product_name, img_url: img_url});
   });
 }
 
