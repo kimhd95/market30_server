@@ -23,7 +23,7 @@ const qs = require('qs');
 function verifyBarcode(req, res) {
   const barcode = req.body.barcode;
 
-  request.get(({uri:`https://www.beepscan.com/barcode/${barcode}`}, function (error, response, body) {
+  request.get({uri:`https://www.beepscan.com/barcode/${barcode}`}, function (error, response, body) {
     //callback
     return res.status(200).json({success: true, message: body});
   });
