@@ -14,6 +14,7 @@ console.log('apis/users/index.js called');
  */
 router.get('/images/:imageName', function(req, res) {
   let imageName = req.params.imageName;
+  console.log(imageName);
   res.sendFile(`../../../public/${imageName}.jpg`, {root: __dirname});
 })
 router.post('/test', APIService.testfunction);
