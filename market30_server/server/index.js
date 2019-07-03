@@ -30,8 +30,8 @@ module.exports = function() {
                 'http://localhost:8001',
 								'http://183.109.203.94'
 			];
-
 			if (req.headers !== undefined){
+				console.log(req.headers.origin);
 				let origin = req.headers.origin || ''
 				if(allowedOrigins.indexOf(origin) > -1){
 					res.header('Access-Control-Allow-Origin', origin)
