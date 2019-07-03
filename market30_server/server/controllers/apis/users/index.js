@@ -18,7 +18,7 @@ router.get('/images/:imageName', function(req, res) {
 });
 router.post('/get_buyer_info', APIService.getBuyerInfo);
 router.post('/register_buyer', APIService.registerBuyer);
-router.post('/register_seller', APIService.registerSeller);
+router.post('/sign_up_seller', APIService.signUpSeller);
 router.post('/register_store', APIService.registerStore);
 router.post('/register_product', APIService.registerProduct);
 router.post('/get_product_list_seller', APIService.getProductListSeller);
