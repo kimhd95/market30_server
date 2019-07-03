@@ -30,14 +30,17 @@ function registerBuyer(req, res) {
   });
 }
 
-function registerSeller(req, res) {
-  const {user_id, password, name} = req.body;
-  const query = `INSERT INTO sellers (user_id, password, name, created_at) VALUES('${user_id}', '${password}', ${name}, NOW())`;
-  models.sequelize.query(query).then(result => {
-    return res.status(200).json({success: true});
-  }).catch(err => {
-    return res.status(500).json({success: false, message: "Internal Server or DB error."});
-  });
+function signUpSeller(req, res) {
+  const {name, user_id, password, phone, store_name, registration_num, address, open_time, close_time} = req.body;
+  console.log(req.body);
+  return res.status(200).json({success: true});
+
+  // const query = `INSERT INTO sellers (user_id, password, name, created_at) VALUES('${user_id}', '${password}', ${name}, NOW())`;
+  // models.sequelize.query(query).then(result => {
+  //   return res.status(200).json({success: true});
+  // }).catch(err => {
+  //   return res.status(500).json({success: false, message: "Internal Server or DB error."});
+  // });
 }
 
 function registerStore(req, res) {
@@ -213,7 +216,7 @@ function deleteWishlist(req, res) {
 module.exports = {
   getBuyerInfo: getBuyerInfo,
   registerBuyer: registerBuyer,
-  registerSeller: registerSeller,
+  signUpSeller: signUpSeller,
   registerStore: registerStore,
   registerProduct: registerProduct,
   getProductListBuyer: getProductListBuyer,
